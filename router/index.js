@@ -6,6 +6,7 @@ const address = require('../router_handler/address')
 const type = require('../router_handler/type');
 const register= require('../router_handler/login/register');
 const user =require('../router_handler/login/user')
+const product = require('../router_handler/product')
 
 
 // ------------------------------------------------登录--------------------------------------------------
@@ -32,6 +33,10 @@ router.get('/product_search',type.product_search)
 
 //标签搜索
 router.get('/tag_search',type.tag_search)
+
+
+//商品详情
+router.get('/product_item',product.product_item)
 
 
 // ------------------------------------------------地址--------------------------------------------------

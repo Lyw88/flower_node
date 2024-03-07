@@ -27,7 +27,6 @@ exports.type = (req, res) => {
         message: err.sqlMessage,
       });
     } else if (rows.length > 0) {
-      console.log("成功进入第二阶段");
       let count = 0;
       for (let i = 0; i < rows.length; i++) {
         const sql = `SELECT * FROM type_detail WHERE t_id = ${rows[i].t_id}`;
@@ -65,6 +64,7 @@ exports.product_search = (req, res) => {
         message: err.sqlMessage,
       });
     } else if (results.length > 0) {
+      results[0].p_image = JSON.parse(results[0].p_image)
       res.send(results)
     } else {
       res.send({}); // 如果没有数据，返回空对象
