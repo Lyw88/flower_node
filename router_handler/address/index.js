@@ -31,7 +31,6 @@ exports.address=(req,res)=>{
 exports.editaddress = (req,res)=>{
   const sql = 'UPDATE address SET name = ?,tel = ?,addressDetail = ?,isDefault = ?,province = ?,city = ?,county = ? WHERE id = ?'
   const {id,name,tel,addressDetail,isDefault,province,city,county} = req.body
-  console.log(id,name);
   db.query(sql,[name,tel,addressDetail,isDefault,province,city,county,id],(err,result)=>{
     if(err){  //数据库语句执行失败
       res.status(500).json({

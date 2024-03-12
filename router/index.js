@@ -7,6 +7,7 @@ const type = require('../router_handler/type');
 const register= require('../router_handler/login/register');
 const user =require('../router_handler/login/user')
 const product = require('../router_handler/product')
+const shopcar = require('../router_handler/shopcar')
 
 
 // ------------------------------------------------登录--------------------------------------------------
@@ -29,14 +30,23 @@ router.get('/type',type.sort)
 router.get('/type_detail',type.type)
 
 //搜索商品
-router.get('/product_search',type.product_search)
+router.get('/product_search',product.product_search)
 
 //标签搜索
-router.get('/tag_search',type.tag_search)
+router.get('/tag_search',product.tag_search)
 
-
-//商品详情
+//商品详情 | id搜索
 router.get('/product_item',product.product_item)
+
+
+// ------------------------------------------------购物车--------------------------------------------------
+
+
+// 加入购物车
+router.get('/add_shopcar',shopcar.add_shopcar)
+
+//渲染购物车
+router.get('/load_shopcar',shopcar.load_shopcar)
 
 
 // ------------------------------------------------地址--------------------------------------------------
