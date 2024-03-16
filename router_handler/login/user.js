@@ -1,4 +1,3 @@
-const { log } = require('console');
 const db = require('../../db/connect')
 const fs = require('fs');
 const path = require('path');
@@ -39,8 +38,6 @@ exports.user_edit = (req,res)=>{
 
   // 添加条件语句
   sql += ` WHERE u_id = ${req.body.u_id}`
-
-  console.log(sql);
   db.query(sql,value,(err,result)=>{
       if(err){  //数据库语句执行失败
         res.status(500).json({
@@ -59,7 +56,6 @@ exports.load_user = (req,res)=>{
       console.log(err);
       res.status(500).send('Error retrieving avatar');
     }else{
-      console.log(result[0]);
       if(result[0].u_avatar!=null){
         result[0].u_avatar = result[0].u_avatar.toString("base64")
       }

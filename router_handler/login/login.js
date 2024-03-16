@@ -8,7 +8,6 @@ exports.userlogin = (req,res)=>{
     const userInfo = req.body;
     
     db.query(sql,values,(err,result,fields)=>{
-        console.log(result[0].u_avatar);
       if(err){  //数据库语句执行失败
         res.status(500).json({
             message:err.sqlMessage

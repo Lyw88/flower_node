@@ -12,7 +12,6 @@ exports.address=(req,res)=>{
           message:err.sqlMessage
       })
   }else if(result.length < 1){ //返回的值为空数组
-    console.log(result);
       res.status(200).json({
           code:500,
           message:'还没有设置地址'

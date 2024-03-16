@@ -39,10 +39,25 @@ exports.add_shopcar = (req, res) => {
         res.status(500).json({
           message: err.sqlMessage,
         });
-      }else if (result.length > 0){
-        res.send(result)
       }else{
-        res.send({message:'当前购物车为空'})
+        res.send(result)
+      }
+    })
+  }
+
+  //删除购物车商品
+  exports.delproduct = (req,res)=>{
+    const sql = `DELETE FROM shopcar WHERE u_id = ${req.query.u_id} AND p_id = ${req.query.p_id}`
+    db.query(sql,(err,result)=>{
+      if (err) {
+        console.log(err);
+        res.status(500).json({
+          message: err.sqlMessage,
+        });
+      }else{
+        res.send({
+          message:'删除商品成功'
+        })
       }
     })
   }
