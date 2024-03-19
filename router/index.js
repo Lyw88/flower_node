@@ -70,4 +70,5 @@ router.get('/delproduct',shopcar.delproduct)
 
 
 // ------------------------------------------------订单--------------------------------------------------
-router.get('/default_address',order.default_address)
+// 提交订单
+router.get('/submit_order',order.submit_order)

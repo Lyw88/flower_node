@@ -12,6 +12,7 @@ exports.product_item = (req, res) => {
       });
     } else {
       result[0].p_image = JSON.parse(result[0].p_image);
+      result[0].p_price = result[0].p_price.toFixed(2)
       res.send(result[0]);
     }
   });
