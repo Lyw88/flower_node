@@ -72,3 +72,6 @@ router.get('/delproduct',shopcar.delproduct)
 // ------------------------------------------------订单--------------------------------------------------
 // 提交订单
 router.get('/submit_order',order.submit_order)
+
+//统计订单状态
+router.get('/o_stateCount',order.o_stateCount)

@@ -17,11 +17,13 @@ exports.userlogin = (req,res)=>{
             message:'用户名或密码错误'
         })
     }else{
-        let token = jwt.create({'id': req.body.u_phone}, 60*60*2);
-        result[0].token =token
+        const token = jwt.create({'id': req.body.u_phone}, 60*60*2);
         res.status(200).json({
             message:'验证通过',
-            data:result[0],
+            data:{
+                token,
+                u_id:result[0].u_id
+            }
         })
     }
     })

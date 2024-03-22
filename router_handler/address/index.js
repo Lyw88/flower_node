@@ -63,10 +63,8 @@ exports.addaddress = (req,res)=>{
 
 //删除地址 
 exports.deladdress = (req,res)=>{
-  const id = req.query.id
-  console.log(id);
-  sql = 'delete from address where id = ?'
-  db.query(sql,id,(err,result)=>{
+  sql = `delete from address where id = ${req.query.id}`
+  db.query(sql,(err,result)=>{
     if(err){  //数据库语句执行失败
       res.status(500).json({
           message:err.sqlMessage
